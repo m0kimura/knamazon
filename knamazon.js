@@ -135,7 +135,7 @@ Amazon.extend({
     me.wait(); return rc;
   },
 //
-  onSystemStatusOk: function(ids, op, proc){
+  onSystemStatusOk: function(ids, proc, op){
     var me=this; var ec2=new AWS.EC2(); op=op||{}; var pm={}; pm=op;
     pm.InstanceIds=ids; 
     ec2.waitFor('systemStatusOk', pm, function(err, data){
@@ -143,7 +143,7 @@ Amazon.extend({
     });
   },
 //
-  onInstanceStatusOk: function(ids, op, proc){
+  onInstanceStatusOk: function(ids, proc, op){
     var me=this; var ec2=new AWS.EC2(); op=op||{}; var pm={}; pm=op;
     pm.InstanceIds=ids; 
     ec2.waitFor('instanceStatusOk', pm, function(err, data){
@@ -151,7 +151,7 @@ Amazon.extend({
     });
   },
 //
-  onSnapshotCompleted: function(pm, proc){
+  onSnapshotCompleted: function(proc, pm){
     var me=this; var ec2=new AWS.EC2(); pm=pm||{};
     ec2.waitFor('snapshotCompleted', pm, function(err, data){
       proc(err, data);
@@ -193,7 +193,7 @@ Amazon.extend({
     var me=this; var sdb=new AWS.SimpleDB(); var pm, rc;
     var k, j; var cnt=0;
     pm={};pm.DomainName=table; var key=''; pm.Attributes=[];
-    var key='';
+
     if(keys){for(k in keys){key+=me.REC[0][k]+'\\';} pm.ItemName=key; j=0;}
     if(!key){
       key=Math.floor(me.now()*100000000+Math.random()*100000000); pm.ItemName=key;
@@ -233,7 +233,7 @@ Amazon.extend({
     me.wait(); return rc;
   },
 //ok
-  readSb: function(table, keys, items){
+  getSb: function(table, keys, items){
     var me=this; var sdb=new AWS.SimpleDB(); var pm, rc;
     var wid=me.ready(); var k, i;
     pm={}; pm.DomainName=table; var key='';
