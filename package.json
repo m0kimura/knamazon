@@ -8,7 +8,7 @@
   ],
   "homepage": "http://www.kmrweb.net/server/knamazon.html",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "michihiro kimura",
     "email": "kimura@kmrweb.net"
@@ -18,7 +18,7 @@
     "url": "git://github.org/m0kimura/knamazon.git"
   },
   "dependencies": {
-    "knuty": "~0.1.0",
+    "knuty": "~0.1.1",
     "aws-sdk": "~2.3.3"
   },
   "engines": {
