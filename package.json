@@ -18,7 +18,7 @@
     "url": "git://github.org/m0kimura/knamazon.git"
   },
   "dependencies": {
-    "knuty": "~0.1.1",
+    "knuty": "latest",
     "aws-sdk": "~2.3.3"
   },
   "engines": {
